@@ -15,7 +15,7 @@
   "devDependencies": {
     "@crowbartools/firebot-custom-scripts-types": "https://github.com/crowbartools/firebot-custom-scripts-types/tarball/fe78b95646ced8c91c09bdb71b6c87a5aa08b98c",
     "@types/color-convert": "^2.0.0",
-    "@types/node": "^14.14.6",
+    "@types/node": "^14.18.36",
     "@types/pino": "^7.0.5",
     "@types/tinycolor2": "^1.4.3",
     "jest": "^26.6.3",
