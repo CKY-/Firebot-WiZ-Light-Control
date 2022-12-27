@@ -14,19 +14,4 @@ export function setupFrontendListeners(
          "wiz-get-scene-list",
          getSceneCollection
      );
-
-    // frontendCommunicator.onAsync<never, SourceData>(
-    //     "obs-get-source-data",
-    //     getSourceData
-    // );
-
-    // frontendCommunicator.onAsync<never, Array<OBSSource>>(
-    //     "obs-get-sources-with-filters",
-    //     getSourcesWithFilters
-    // );
-
-    // frontendCommunicator.onAsync<never, Array<OBSSource>>(
-    //     "obs-get-audio-sources",
-    //     getAudioSources
-    // );
 }
