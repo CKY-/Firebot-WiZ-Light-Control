@@ -1,6 +1,7 @@
 Create a text file with all of your lights IP address in it one IP per line. 
 
-In firebot go to settings scripts enable start up scripts, 
+
+In [firebot](https://github.com/crowbartools/Firebot/) go to settings scripts enable start up scripts, 
 then manage scripts and put the released file in the scripts folder. 
 
 
