@@ -16,7 +16,7 @@
     "@crowbartools/firebot-custom-scripts-types": "https://github.com/crowbartools/firebot-custom-scripts-types/tarball/fe78b95646ced8c91c09bdb71b6c87a5aa08b98c",
     "@types/color-convert": "^2.0.0",
     "@types/node": "^14.18.36",
-    "@types/pino": "^7.0.5",
+    "@types/pino": "^4.15.3",
     "@types/tinycolor2": "^1.4.3",
     "jest": "^26.6.3",
     "terser-webpack-plugin": "^4.2.3",
@@ -27,9 +27,9 @@
     "webpack-cli": "^4.1.0"
   },
   "dependencies": {
-    "class-validator": "^0.13.1",
+    "class-validator": "^0.13.2",
     "ip": "^1.1.5",
-    "pino": "^7.2.0",
+    "pino": "^4.15.3",
     "tiny-typed-emitter": "^2.1.0",
     "tinycolor2": "^1.5.1"
   }
