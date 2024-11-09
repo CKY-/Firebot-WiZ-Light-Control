@@ -1,5 +1,5 @@
 import { Firebot } from "@crowbartools/firebot-custom-scripts-types";
-import { changeBrigtness } from "../../wiz-lights"
+import { changeBrightness } from "../../wiz-lights"
 
 export const setWizLightBrightnessEffectType: Firebot.EffectType<{
     lightCollectionName: string;
@@ -76,7 +76,7 @@ export const setWizLightBrightnessEffectType: Firebot.EffectType<{
         return [];
     },
     onTriggerEvent: async ({ effect }) => {
-        changeBrigtness(effect.lightCollectionName, effect.brightness);
+        changeBrightness(effect.lightCollectionName, effect.brightness);
         return true;
     },
 };

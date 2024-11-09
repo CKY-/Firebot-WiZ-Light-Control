@@ -13,17 +13,18 @@
   "author": "CKY",
   "license": "GNU3",
   "devDependencies": {
-    "@crowbartools/firebot-custom-scripts-types": "https://github.com/crowbartools/firebot-custom-scripts-types/tarball/fe78b95646ced8c91c09bdb71b6c87a5aa08b98c",
     "@types/color-convert": "^2.0.0",
-    "@types/node": "^14.18.36",
     "@types/pino": "^4.15.3",
     "@types/tinycolor2": "^1.4.3",
-    "jest": "^26.6.3",
-    "terser-webpack-plugin": "^4.2.3",
-    "ts-jest": "^26.4.4",
-    "typescript": "^4.0.5",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^4.1.0"
+    "@crowbartools/firebot-custom-scripts-types": "^5.63.0",
+    "@types/node": "^20.14.0",
+    "jest": "^29.7.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "ts-jest": "^29.1.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "class-validator": "^0.13.2",
@@ -31,5 +32,9 @@
     "pino": "^4.15.3",
     "tiny-typed-emitter": "^2.1.0",
     "tinycolor2": "^1.5.1"
+  },
+  "volta": {
+    "node": "20.14.0",
+    "npm": "10.8.1"
   }
 }

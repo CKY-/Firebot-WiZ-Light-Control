@@ -11,6 +11,7 @@ import { initRemote } from "../wiz-lights";
 type WizSettings = {
     wizSettings: {
         ipAddress: string;
+        adapter: string
     };
 };
 
@@ -31,11 +32,12 @@ class WizIntegration
             return;
         }
         const {
-            wizSettings: { ipAddress },
+            wizSettings: { ipAddress, adapter},
         } = settings;
         initRemote(
             {
                 ip: ipAddress,
+                adapter: adapter
             },
             {
                 eventManager: this.eventManager,

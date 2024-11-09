@@ -1,5 +1,5 @@
 import { Firebot } from "@crowbartools/firebot-custom-scripts-types";
-import { changeBrigtness, changeLightModeSceneAndBrightness, changeLightScene } from "../../wiz-lights"
+import { changeBrightness, changeLightModeSceneAndBrightness, changeLightScene } from "../../wiz-lights"
 import { logger } from "../../logger";
 import { Scene } from "../../../wiz-local-control/dist/classes/LightMode";
 
@@ -142,7 +142,7 @@ export const setWizLightSceneEffectType: Firebot.EffectType<{
         }
 
         if (effect.setScene == false && effect.setBrightness == true) {
-            changeBrigtness(effect.lightCollectionName, effect.brightness);
+            changeBrightness(effect.lightCollectionName, effect.brightness);
         }
 
         if (effect.setScene == true && effect.setBrightness == true) {

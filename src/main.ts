@@ -6,17 +6,28 @@ import { turnWizLightOnEffectType } from "./firebot/effects/wiz-light-on";
 import { turnWizLightOffEffectType } from "./firebot/effects/wiz-light-off";
 import { setWizLightSceneEffectType } from "./firebot/effects/wiz-light-set-scene";
 import { setWizLightBrightnessEffectType } from "./firebot/effects/wiz-light-set-brightness";
-import { initLogger } from "./logger";
+import { initLogger, logger } from "./logger";
+const os = require('os');
 
 interface Params {
   ipAddress: string;
+  adapter: string;
 }
+
+let networkInterfaces = os.networkInterfaces();
+let interfaceNames: string[] = [];
+for (const interfaceName in networkInterfaces) {
+  if (networkInterfaces.hasOwnProperty(interfaceName)) {
+    interfaceNames.push(interfaceName);
+  }
+}
+
 
 const script: Firebot.CustomScript<Params> = {
   getScriptManifest: () => {
     return {
       name: "Wiz Lights",
-      description: "Control Wiz lights from Events and commmands.",
+      description: "Control Wiz lights from Events and commands.",
       author: "CKY",
       version: "1.0",
       firebotVersion: "5",
@@ -28,6 +39,7 @@ const script: Firebot.CustomScript<Params> = {
       ipAddress: {
         type: "filepath",
         default: "",
+        title: "Please Select A file",
         description: "List of ip addess file",
         secondaryDescription:
           "The ip address's of the first light to control",
@@ -38,6 +50,16 @@ const script: Firebot.CustomScript<Params> = {
           buttonLabel: "Select"
         }
       },
+      adapter: {
+        type: "enum",
+        default: "Select",
+        title: "Please Select An Adapter",
+        description: "Connection device (Must restart firebot)",
+        secondaryDescription: "The connection device by name that is connected to your access point",
+        options: interfaceNames,
+        searchable: true,
+        placeholder: "Connection device"
+      }
     };
   },
   run: async (runRequest) => {
@@ -46,12 +68,14 @@ const script: Firebot.CustomScript<Params> = {
     initRemote(
       {
         ip: runRequest.parameters.ipAddress,
+        adapter: runRequest.parameters.adapter
       },
       {
         eventManager,
       }
     );
-
+    logger.error(interfaceNames.toString())
+    logger.error(networkInterfaces.toString());
     setupFrontendListeners(runRequest.modules.frontendCommunicator);
     runRequest.modules.effectManager.registerEffect(turnWizLightOnEffectType);
     runRequest.modules.effectManager.registerEffect(turnWizLightOffEffectType);

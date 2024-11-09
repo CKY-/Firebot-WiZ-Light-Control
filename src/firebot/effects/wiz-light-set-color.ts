@@ -1,5 +1,5 @@
 import { Firebot } from "@crowbartools/firebot-custom-scripts-types";
-import { changeBrigtness, changeLight, changeLightModeAndBrightness } from "../../wiz-lights"
+import { changeBrightness, changeLight, changeLightModeAndBrightness } from "../../wiz-lights"
 
 export const setWizLightColorEffectType: Firebot.EffectType<{
     lightCollectionName: string;
@@ -124,7 +124,7 @@ export const setWizLightColorEffectType: Firebot.EffectType<{
         }
 
         if (effect.setColor == true && effect.setBrighteness == false) {
-            changeBrigtness(effect.lightCollectionName, effect.brightness);
+            changeBrightness(effect.lightCollectionName, effect.brightness);
         }
 
         if (effect.setColor == true && effect.setBrighteness == true) {

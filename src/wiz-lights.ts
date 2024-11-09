@@ -21,8 +21,10 @@ export class lightCollections {
 export function initRemote(
     {
         ip,
+        adapter
     }: {
         ip: string;
+        adapter: string;
     },
     modules: {
         eventManager: ScriptModules["eventManager"];
@@ -30,13 +32,19 @@ export function initRemote(
 ) {
     eventManager = modules.eventManager;
     setFile(ip);
+    setAdapter(adapter);
 }
 
 let eventManager: ScriptModules["eventManager"];
 let filePath: string;
+let selectedAdapter: string;
 
 function setFile(ip: string) {
     filePath = ip;
+}
+
+function setAdapter(adapter: string) {
+    selectedAdapter = adapter;
 }
 
 const detectedDevices = new lightCollections();
@@ -49,7 +57,7 @@ const wizLocalControl = new WiZLocalControl({
             }
         });
     },
-    interfaceName: "eth0"
+    interfaceName: selectedAdapter
 });
 
 export async function getSceneCollection(): Promise<Scene[]> {
@@ -76,7 +84,7 @@ export async function getlightCollections(): Promise<string[]> {
     return [];
 }
 
-export function connectToLight(ip: any, r: number, g: number, b: number) {
+export function connectToLight(ip: any) {
     wizLocalControl.udpManager.startListening();
 }
 
@@ -130,7 +138,7 @@ export function changeLightModeSceneAndBrightness(ip: any, scene: Scene, brighen
     );
 }
 
-export function changeBrigtness( ip: string, brightness: number){
+export function changeBrightness( ip: string, brightness: number){
     wizLocalControl.changeBrightness(brightness, ip);
 }
 
@@ -140,4 +148,8 @@ export function lightOn(ip: any) {
 
 export function lightOff(ip: any) {
     wizLocalControl.changeStatus(false, ip);
+} 
+
+export function getConfig(ip: any) {
+    wizLocalControl.getSystemConfig(ip);
 }
